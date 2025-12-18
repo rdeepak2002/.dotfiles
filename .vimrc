@@ -1,9 +1,8 @@
 call plug#begin()
 Plug 'mattn/emmet-vim'
-Plug 'mhartington/oceanic-next'
+Plug 'rose-pine/vim', {'as': 'rose-pine'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jcherven/jummidark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
@@ -32,6 +31,7 @@ set number
 set relativenumber
 set termguicolors
 syntax enable
+colorscheme rosepine
 set cursorline
 
 " Open NERDTree automatically when vim starts up on a directory
