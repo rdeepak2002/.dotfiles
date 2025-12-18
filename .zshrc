@@ -13,7 +13,7 @@ if [[ "$OS" == "Darwin" ]]; then
 
     # Function to check and install brew cask packages
     install_cask_if_missing() {
-        if ! command -v $1 &> /dev/null; then
+        if ! brew list --cask $1 &> /dev/null; then
             echo "Installing $1..." >&2
             brew install --cask $1 &> /dev/null
         fi
