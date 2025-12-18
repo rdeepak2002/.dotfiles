@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal configuration files for ZSH, Vim, and Ghostty terminal.
+Personal configuration files for ZSH, Vim, Ghostty terminal, and Moom window management.
 
 ## Features
 
@@ -25,6 +25,12 @@ Personal configuration files for ZSH, Vim, and Ghostty terminal.
 - Rose Pine theme with transparent background
 - Blur effect for aesthetics
 - **Note**: Ghostty must be installed manually (`brew install --cask ghostty`)
+
+### Moom Window Layouts (macOS only)
+- Saved window layout configurations for Moom
+- **Ghostty Main.moom**: Window layout for Chrome, Safari, and Ghostty terminal
+- **Note**: Version controlled for backup; manually import in Moom app when needed
+- **Installation**: Moom must be installed separately (`brew install --cask moom`)
 
 ## Installation
 
@@ -61,6 +67,7 @@ On first terminal launch, if you're on macOS, these tools will be auto-installed
 
 - **Homebrew** (macOS): Required for auto-installation of CLI tools
 - **Ghostty** (optional, macOS): Install manually with `brew install --cask ghostty` to use the included config
+- **Moom** (optional, macOS): Install manually with `brew install --cask moom` to use the saved window layouts
 
 ## File Structure
 
@@ -70,6 +77,8 @@ On first terminal launch, if you're on macOS, these tools will be auto-installed
 ├── .vimrc           # Vim configuration
 ├── ghostty/
 │   └── config       # Ghostty terminal config (macOS)
+├── moom/
+│   └── Ghostty Main.moom  # Moom window layout (macOS)
 ├── setup.sh         # Installation script
 └── README.md        # This file
 ```

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Custom Controls (4001)</key>
+	<array>
+		<dict>
+			<key>Action</key>
+			<integer>1001</integer>
+			<key>Activate Applications</key>
+			<true/>
+			<key>Apply to Active Display</key>
+			<false/>
+			<key>Apply to Overlapping Windows</key>
+			<true/>
+			<key>Auto-Trigger</key>
+			<false/>
+			<key>Auto-Trigger Display Count</key>
+			<integer>1</integer>
+			<key>Generic</key>
+			<false/>
+			<key>Hot Key</key>
+			<dict>
+				<key>Identifier</key>
+				<string>03B7C127-C836-4906-ADE5-F1A86BD15717</string>
+				<key>Key Code</key>
+				<integer>37</integer>
+				<key>Modifier Flags</key>
+				<integer>1048848</integer>
+				<key>Visual Representation</key>
+				<string>⌘L</string>
+			</dict>
+			<key>Identifier</key>
+			<string>03B7C127-C836-4906-ADE5-F1A86BD15717</string>
+			<key>Snapshot</key>
+			<array>
+				<dict>
+					<key>Application Name</key>
+					<string>Google Chrome</string>
+					<key>Available Screen Frame</key>
+					<string>{{0, 0}, {5120, 1409}}</string>
+					<key>Bundle Identifier</key>
+					<string>com.google.chrome</string>
+					<key>PID</key>
+					<string>75473</string>
+					<key>Screen Frame</key>
+					<string>{{0, 0}, {5120, 1440}}</string>
+					<key>Window Frame</key>
+					<string>{{3293, 0}, {1407, 1409}}</string>
+					<key>Window Number</key>
+					<string>7160</string>
+					<key>Window Subrole</key>
+					<string>AXStandardWindow</string>
+					<key>Window Title</key>
+					<string>create a shortcut to a file unix terminal - Google Search - Google Chrome - Deepak</string>
+				</dict>
+				<dict>
+					<key>Application Name</key>
+					<string>Safari</string>
+					<key>Available Screen Frame</key>
+					<string>{{0, 0}, {5120, 1409}}</string>
+					<key>Bundle Identifier</key>
+					<string>com.apple.safari</string>
+					<key>PID</key>
+					<string>4023</string>
+					<key>Screen Frame</key>
+					<string>{{0, 0}, {5120, 1440}}</string>
+					<key>Window Frame</key>
+					<string>{{411, 0}, {1095, 1409}}</string>
+					<key>Window Number</key>
+					<string>7278</string>
+					<key>Window Subrole</key>
+					<string>AXStandardWindow</string>
+					<key>Window Title</key>
+					<string>Google Gemini</string>
+				</dict>
+				<dict>
+					<key>Application Name</key>
+					<string>Ghostty</string>
+					<key>Available Screen Frame</key>
+					<string>{{0, 0}, {5120, 1409}}</string>
+					<key>Bundle Identifier</key>
+					<string>com.mitchellh.ghostty</string>
+					<key>PID</key>
+					<string>273</string>
+					<key>Screen Frame</key>
+					<string>{{0, 0}, {5120, 1440}}</string>
+					<key>Window Frame</key>
+					<string>{{1507, 0}, {1785, 1409}}</string>
+					<key>Window Number</key>
+					<string>7067</string>
+					<key>Window Subrole</key>
+					<string>AXStandardWindow</string>
+					<key>Window Title</key>
+					<string>vi ghostty-config</string>
+				</dict>
+			</array>
+			<key>Snapshot Screens</key>
+			<array>
+				<string>{{0, 0}, {5120, 1440}}</string>
+			</array>
+			<key>Stubborn</key>
+			<false/>
+			<key>Title</key>
+			<string>Ghostty Main</string>
+		</dict>
+	</array>
+</dict>
+</plist>
