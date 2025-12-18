@@ -8,7 +8,6 @@ Personal configuration files for ZSH, Vim, and Ghostty terminal.
 - **OS Detection**: Automatically detects macOS and only runs platform-specific commands
 - **Auto-installation**: Automatically installs required brew packages on macOS
   - CLI tools: eza, bat, lazygit
-  - Terminal: ghostty (cask)
 - **Modern CLI tools**: Aliased for better command-line experience
 - **ZSH completion**: Enhanced menu-based completion
 - **NVM & SDKMAN**: Automatic initialization if installed
@@ -21,9 +20,11 @@ Personal configuration files for ZSH, Vim, and Ghostty terminal.
 - Syntax highlighting and modern themes
 
 ### Ghostty Config (macOS only)
+- Config management via symlink to `$XDG_CONFIG_HOME/ghostty/config`
 - Custom keybindings for split navigation (opt+h/j/k/l)
 - Rose Pine theme with transparent background
 - Blur effect for aesthetics
+- **Note**: Ghostty must be installed manually (`brew install --cask ghostty`)
 
 ## Installation
 
@@ -49,13 +50,17 @@ The setup script will:
 source ~/.zshrc
 ```
 
-## What gets installed (macOS only)
+## What gets auto-installed (macOS only)
 
 On first terminal launch, if you're on macOS, these tools will be auto-installed via Homebrew:
 - **eza**: Modern replacement for ls
 - **bat**: Modern replacement for cat with syntax highlighting
 - **lazygit**: Terminal UI for git commands
-- **ghostty**: Modern terminal emulator (cask)
+
+## Prerequisites
+
+- **Homebrew** (macOS): Required for auto-installation of CLI tools
+- **Ghostty** (optional, macOS): Install manually with `brew install --cask ghostty` to use the included config
 
 ## File Structure
 
@@ -91,10 +96,6 @@ mkdir -p ${XDG_CONFIG_HOME:-~/.config}/ghostty
 ln -s ~/.dotfiles/ghostty/config ${XDG_CONFIG_HOME:-~/.config}/ghostty/config
 ```
 
-## Requirements
-
-- **macOS**: Homebrew for auto-installation of tools
-- **Other OS**: The .zshrc will work but won't auto-install packages
 
 ## Notes
 

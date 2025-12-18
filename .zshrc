@@ -11,21 +11,10 @@ if [[ "$OS" == "Darwin" ]]; then
         fi
     }
 
-    # Function to check and install brew cask packages
-    install_cask_if_missing() {
-        if ! brew list --cask $1 &> /dev/null; then
-            echo "Installing $1..." >&2
-            brew install --cask $1 &> /dev/null
-        fi
-    }
-
     # Install and setup modern CLI tools
     install_if_missing eza
     install_if_missing bat
     install_if_missing lazygit
-
-    # Install terminal (cask)
-    install_cask_if_missing ghostty
 fi
 
 # Aliases (only set if commands exist)
