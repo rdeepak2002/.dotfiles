@@ -79,6 +79,10 @@ endfunction
 " Enable line numbers specifically for NERDTree
 autocmd FileType nerdtree setlocal number relativenumber
 
+" Keep the tree in sync with the file system
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeCreatePrefix = 'silent'
+
 " --- Navigation ---
 " Ctrl+P: Search for File Name (IntelliJ Cmd+Shift+O / Shift+Shift)
 nnoremap <C-p> :Files<CR>

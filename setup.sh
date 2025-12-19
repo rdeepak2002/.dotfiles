@@ -41,6 +41,14 @@ create_symlink() {
 create_symlink "$DOTFILES_DIR/.zshrc" "$HOME_DIR/.zshrc"
 create_symlink "$DOTFILES_DIR/.vimrc" "$HOME_DIR/.vimrc"
 
+# Neovim config setup
+echo ""
+echo "Setting up Neovim config..."
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME_DIR/.config}"
+mkdir -p "$CONFIG_HOME/nvim"
+create_symlink "$DOTFILES_DIR/nvim/init.vim" "$CONFIG_HOME/nvim/init.vim"
+create_symlink "$DOTFILES_DIR/nvim/coc-settings.json" "$CONFIG_HOME/nvim/coc-settings.json"
+
 # macOS-specific: Ghostty terminal config
 if [[ "$(uname -s)" == "Darwin" ]]; then
     echo ""
