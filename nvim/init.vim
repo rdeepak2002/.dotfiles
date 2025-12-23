@@ -62,7 +62,7 @@ nnoremap <C-e> :History<CR>
 nnoremap <C-f> :noh<CR>/
 inoremap <C-f> <Esc>:noh<CR>/
 nnoremap <C-g> :Rg
-nnoremap <C-r> :%s/\v//gc<Left><Left><Left><Left>
+nnoremap <C-S-r> :%s/\v//gc<Left><Left><Left><Left>
 
 " Buffer tabs
 nmap <leader>n :bnext<CR>
