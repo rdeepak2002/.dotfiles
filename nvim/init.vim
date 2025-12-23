@@ -117,3 +117,6 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Neovim usually has matchit built-in, but this keeps compatibility
 silent! runtime macros/matchit.vim
+
+" Sync clipboard
+set clipboard=unnamedplus
