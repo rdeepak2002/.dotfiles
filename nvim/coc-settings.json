@@ -9,5 +9,14 @@
     "typescript.tsx",
     "graphql"
   ],
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+
+  // Core fix: Enable automatic refresh of inlay hints
+  "inlayHint.enable": true,
+  "inlayHint.refreshOnInsertMode": true,
+
+  // Python-specific inlay hints (coc-pyright) - DISABLED
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.parameterTypes": false
 }

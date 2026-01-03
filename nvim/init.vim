@@ -15,6 +15,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'metakirby5/codi.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'sphamba/smear-cursor.nvim'
 
 call plug#end()
 
@@ -28,6 +29,7 @@ set number
 set relativenumber
 set termguicolors
 set cursorline
+set updatetime=300
 syntax enable
 
 " Error Handling: Only load colorscheme if it exists
@@ -120,3 +122,19 @@ silent! runtime macros/matchit.vim
 
 " Sync clipboard
 set clipboard=unnamedplus
+
+" --- CoC Inlay Hints Refresh Fix ---
+augroup CocInlayHints
+    autocmd!
+    " Refresh hints when leaving insert mode
+    " Force screen redraw to clear visual artifacts
+    autocmd InsertLeave * redraw
+augroup END
+
+" Manual toggle if needed: <Space>ih
+nnoremap <leader>ih :CocCommand document.toggleInlayHint<CR>
+
+" --- Smear Cursor Configuration ---
+lua << EOF
+require('smear_cursor').enabled = true
+EOF

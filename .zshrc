@@ -33,3 +33,5 @@ export NVM_DIR="$HOME/.nvm"
 # SDKMAN setup (if exists)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH=$PATH:/Users/deepakramalingam/.local/bin

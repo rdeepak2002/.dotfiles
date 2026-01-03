@@ -34,6 +34,7 @@ set termguicolors
 syntax enable
 colorscheme rosepine
 set cursorline
+set updatetime=300
 
 " Open NERDTree automatically when vim starts up on a directory
 autocmd StdinReadPre * let s:std_in=1
