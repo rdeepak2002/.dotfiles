@@ -102,13 +102,20 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Tab accepts the selected completion
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ coc#pum#visible() ? coc#pum#confirm() :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Ctrl+n navigates to next completion item
+inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+
+" Ctrl+p navigates to previous completion item
+inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
+
+" Enter always creates a new line and closes completion menu
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#cancel() . "\<CR>" : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " CoC GoTo definitions
 nmap <silent> <C-b> <Plug>(coc-definition)
