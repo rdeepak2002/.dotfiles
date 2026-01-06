@@ -30,6 +30,7 @@ set relativenumber
 set termguicolors
 set cursorline
 set updatetime=300
+set colorcolumn=100
 syntax enable
 
 " Error Handling: Only load colorscheme if it exists
@@ -95,6 +96,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeCreatePrefix = 'silent'
+let g:NERDTreeShowHidden = 1
 
 " --- CoC Autocompletion Setup ---
 function! CheckBackspace() abort

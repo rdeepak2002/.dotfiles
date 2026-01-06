@@ -31,26 +31,35 @@ vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 set number
 set relativenumber
 set termguicolors
+set colorcolumn=100
 syntax enable
-colorscheme rosepine
+silent! colorscheme rosepine
 set cursorline
 set updatetime=300
+set clipboard=unnamedplus
 
-" Open NERDTree automatically when vim starts up on a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" --- NERDTree Configuration ---
+augroup MyNerdTree
+    autocmd!
+    " Open NERDTree automatically when vim starts up on a directory
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+    " Exit Vim if NERDTree is the only window remaining in the only tab.
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+    " Open NERDTree when Vim starts with no files specified
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+    " Enable line numbers specifically for NERDTree
+    autocmd FileType nerdtree setlocal number relativenumber
+augroup END
 
 " Alternative shortcut to open/close the tree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Automatically reveal the current file in NERDTree on buffer switch
 "autocmd BufEnter * if &buftype ==# '' && !&previewwindow && bufname('%') !=# '' && !exists('g:NERDTree') && g:NERDTree.IsOpen() | NERDTreeFind | wincmd p | endif
-
-" Open NERDTree when Vim starts with no files specified
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
@@ -61,28 +70,30 @@ runtime macros/matchit.vim
 
 " --- IDE Autocompletion (CoC) Setup ---
 
-" Use Tab to navigate the completion menu
-inoremap <silent><expr> <TAB>
-			\ coc#pum#visible() ? coc#pum#next(1) :
-			\ CheckBackspace() ? "\<Tab>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make Enter (CR) auto-select the first completion item
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 function! CheckBackspace() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Enable line numbers specifically for NERDTree
-autocmd FileType nerdtree setlocal number relativenumber
+" Tab accepts the selected completion
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" Ctrl+n navigates to next completion item
+inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+
+" Ctrl+p navigates to previous completion item
+inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
+
+" Enter always creates a new line and closes completion menu
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#cancel() . "\<CR>" : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Keep the tree in sync with the file system
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeCreatePrefix = 'silent'
+let g:NERDTreeShowHidden = 1
 
 " --- Navigation ---
 " Ctrl+P: Search for File Name (IntelliJ Cmd+Shift+O / Shift+Shift)
@@ -101,9 +112,9 @@ inoremap <C-f> <Esc>:noh<CR>/
 " If this doesn't work, use <Leader>f
 nnoremap <C-g> :Rg 
 
-" Ctrl+R: Replace in file (IntelliJ Cmd+R)
+" Ctrl+Shift+R: Replace in file (IntelliJ Cmd+R)
 " Preps the command and puts cursor between slashes
-nnoremap <C-r> :%s/\v//gc<Left><Left><Left><Left>
+nnoremap <C-S-r> :%s/\v//gc<Left><Left><Left><Left>
 
 " --- Code Intelligence ---
 " Ctrl+B: Go to Definition (IntelliJ Cmd+B)
@@ -114,3 +125,14 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" --- CoC Inlay Hints Refresh Fix ---
+augroup CocInlayHints
+    autocmd!
+    " Refresh hints when leaving insert mode
+    " Force screen redraw to clear visual artifacts
+    autocmd InsertLeave * redraw
+augroup END
+
+" Manual toggle if needed: <Space>ih
+nnoremap <leader>ih :CocCommand document.toggleInlayHint<CR>
