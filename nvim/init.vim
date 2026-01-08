@@ -16,6 +16,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'sphamba/smear-cursor.nvim'
+Plug 'keith/swift.vim'
 
 call plug#end()
 

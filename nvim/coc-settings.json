@@ -7,7 +7,8 @@
     "json",
     "javascriptreact",
     "typescript.tsx",
-    "graphql"
+    "graphql",
+    "swift"
   ],
   "snippets.ultisnips.pythonPrompt": false,
 
@@ -18,5 +19,17 @@
   // Python-specific inlay hints (coc-pyright) - DISABLED
   "pyright.inlayHints.variableTypes": false,
   "pyright.inlayHints.functionReturnTypes": false,
-  "pyright.inlayHints.parameterTypes": false
+  "pyright.inlayHints.parameterTypes": false,
+
+  // Swift Language Server Configuration
+  "languageserver": {
+    "sourcekit-lsp": {
+      "command": "xcrun",
+      "args": ["sourcekit-lsp"],
+      "filetypes": ["swift"],
+      "initializationOptions": {},
+      "settings": {},
+      "rootPatterns": ["Package.swift", ".git"]
+    }
+  }
 }
