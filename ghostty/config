@@ -3,10 +3,12 @@ keybind = "opt+j=goto_split:down"
 keybind = "opt+k=goto_split:up"
 keybind = "opt+l=goto_split:right"
 
-background = 1a1724
-theme = Rose Pine 
-background-opacity = 0.85
+unfocused-split-opacity = 1.0
+split-divider-color = 666666
+theme = Xcode Dark hc
+background-opacity = 1.0
 background-blur-radius = 40
+font-size = 16
 # This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following

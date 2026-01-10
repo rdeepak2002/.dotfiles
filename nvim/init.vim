@@ -3,7 +3,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mattn/emmet-vim'
-Plug 'rose-pine/vim', {'as': 'rose-pine'}
+Plug 'lunacookies/vim-colors-xcode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,6 +17,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'sphamba/smear-cursor.nvim'
 Plug 'keith/swift.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -35,7 +36,7 @@ set colorcolumn=100
 syntax enable
 
 " Error Handling: Only load colorscheme if it exists
-silent! colorscheme rosepine
+silent! colorscheme xcodedarkhc
 
 " --- Keymaps ---
 let mapleader = " "
@@ -144,7 +145,47 @@ augroup END
 " Manual toggle if needed: <Space>ih
 nnoremap <leader>ih :CocCommand document.toggleInlayHint<CR>
 
+" --- C/C++ Header Guards ---
+function! s:InsertHeaderGuard()
+    " Get the filename and convert to uppercase with underscores
+    let filename = expand('%:t')
+    let guard = toupper(substitute(filename, '[^a-zA-Z0-9]', '_', 'g'))
+
+    " Insert the header guard template
+    call append(0, '#ifndef ' . guard)
+    call append(1, '#define ' . guard)
+    call append(2, '')
+    call append(3, '')
+    call append(4, '')
+    call append(5, '#endif // ' . guard)
+
+    " Position cursor on line 4 (between the guards)
+    normal! 4G
+endfunction
+
+augroup HeaderGuards
+    autocmd!
+    autocmd BufNewFile *.h,*.hpp call s:InsertHeaderGuard()
+augroup END
+
 " --- Smear Cursor Configuration ---
 lua << EOF
 require('smear_cursor').enabled = true
+EOF
+
+" --- Treesitter Configuration ---
+lua << EOF
+local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
+if status_ok then
+  configs.setup {
+    ensure_installed = { "c", "cpp", "rust", "cmake", "python", "javascript", "typescript", "json", "lua" },
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = true,
+    },
+    indent = {
+      enable = true
+    },
+  }
+end
 EOF
