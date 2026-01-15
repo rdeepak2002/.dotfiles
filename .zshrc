@@ -35,3 +35,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export PATH=$PATH:/Users/deepakramalingam/.local/bin
+
+# job-specific stuff
+[[ -x "/Users/dramalingam/Documents/projects/nflx-scheduler-client/python-client/venv/bin/scheduler" ]] && alias scheduler=/Users/dramalingam/Documents/projects/nflx-scheduler-client/python-client/venv/bin/scheduler

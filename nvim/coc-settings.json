@@ -8,8 +8,15 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql",
-    "swift"
+    "swift",
+    "java"
   ],
+
+  // Java (coc-java) Configuration
+  "java.configuration.gradle.enabled": true,
+  "java.import.gradle.enabled": true,
+  "java.import.gradle.wrapper.enabled": true,
+  "java.jdt.ls.java.home": "",
   "snippets.ultisnips.pythonPrompt": false,
 
   // Core fix: Enable automatic refresh of inlay hints

@@ -178,7 +178,7 @@ lua << EOF
 local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
 if status_ok then
   configs.setup {
-    ensure_installed = { "c", "cpp", "rust", "cmake", "python", "javascript", "typescript", "json", "lua" },
+    ensure_installed = { "c", "cpp", "rust", "cmake", "python", "javascript", "typescript", "json", "lua", "java", "groovy" },
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = true,
