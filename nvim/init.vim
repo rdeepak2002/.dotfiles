@@ -38,6 +38,16 @@ syntax enable
 " Error Handling: Only load colorscheme if it exists
 silent! colorscheme xcodedarkhc
 
+" --- Treesitter Highlight Links for xcodedarkhc ---
+" Map Treesitter captures to standard highlight groups
+highlight link @type Type
+highlight link @type.builtin Type
+highlight link @type.definition Type
+highlight link @type.qualifier Keyword
+highlight link @constructor Type
+highlight link @variable.builtin Special
+highlight link @constant.builtin Constant
+
 " --- Keymaps ---
 let mapleader = " "
 
