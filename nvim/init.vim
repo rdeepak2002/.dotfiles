@@ -54,7 +54,6 @@ nnoremap <C-j> :m +1<CR>
 nnoremap d "_d
 nnoremap c d
 nnoremap C D
-vnoremap c d
 nnoremap x "_x
 
 " NERDCommenter (Ctrl + /)
@@ -72,6 +71,9 @@ nnoremap <C-S-r> :%s/\v//gc<Left><Left><Left><Left>
 " Buffer tabs
 nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
+
+" Exit terminal mode with Escape
+tnoremap <Esc> <C-\><C-n>
 
 " --- Autocommands & NERDTree Logic ---
 
