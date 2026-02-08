@@ -1,0 +1,8 @@
+This is a test file to verify vim and nvim configurations.
+Testing features:
+1. Colorcolumn at 100 characters
+2. Hidden files in NERDTree
+3. Clipboard sync
+4. CoC completion keybindings
+
+This line is intentionally very long to test the colorcolumn feature at 100 characters mark right here!

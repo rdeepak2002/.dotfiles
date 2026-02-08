@@ -243,8 +243,16 @@
     }
   },
   "shortcuts" : {
-    "firstThird" : {
+    "bottomRight" : {
+      "keyCode" : 119,
+      "modifierFlags" : 0
+    },
+    "centerHalf" : {
       "keyCode" : 115,
+      "modifierFlags" : 0
+    },
+    "firstFourth" : {
+      "keyCode" : 116,
       "modifierFlags" : 0
     },
     "lastFourth" : {

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(git config:*)",
+      "Bash(readlink:*)",
+      "Bash(git push:*)",
+      "WebSearch",
+      "Bash(nvim:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(xargs ls:*)",
+      "Bash(timeout 5 nvim:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(ghostty:*)"
+    ]
+  }
+}
