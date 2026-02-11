@@ -243,9 +243,9 @@
     }
   },
   "shortcuts" : {
-    "bottomRight" : {
+    "bottomRightSixth" : {
       "keyCode" : 119,
-      "modifierFlags" : 0
+      "modifierFlags" : 1048576
     },
     "centerHalf" : {
       "keyCode" : 115,
@@ -259,6 +259,10 @@
       "keyCode" : 121,
       "modifierFlags" : 0
     },
+    "maximizeHeight" : {
+      "keyCode" : 119,
+      "modifierFlags" : 0
+    },
     "reflowTodo" : {
       "keyCode" : 45,
       "modifierFlags" : 786432
@@ -266,6 +270,10 @@
     "toggleTodo" : {
       "keyCode" : 11,
       "modifierFlags" : 786432
+    },
+    "topRightSixth" : {
+      "keyCode" : 115,
+      "modifierFlags" : 1048576
     }
   },
   "version" : "99"
