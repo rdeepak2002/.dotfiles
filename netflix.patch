@@ -1,0 +1,11 @@
+diff --git a/.zshrc b/.zshrc
+index 016c752..ee91f4e 100644
+--- a/.zshrc
++++ b/.zshrc
+@@ -35,3 +35,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
+ [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+ 
+ export PATH=$PATH:/Users/deepakramalingam/.local/bin
++
++# job-specific stuff
++alias scheduler=/Users/dramalingam/Documents/projects/nflx-scheduler-client/python-client/venv/bin/scheduler

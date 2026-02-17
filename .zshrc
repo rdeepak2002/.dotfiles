@@ -37,3 +37,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH=$PATH:/Users/deepakramalingam/.local/bin
 
 alias scratchpad='nvim $(mktemp)'
+
+alias clauded="claude --dangerously-skip-permissions"
