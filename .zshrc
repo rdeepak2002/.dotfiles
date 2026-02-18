@@ -39,3 +39,5 @@ export PATH=$PATH:/Users/deepakramalingam/.local/bin
 alias scratchpad='nvim $(mktemp)'
 
 alias clauded="claude --dangerously-skip-permissions"
+
+alias claudet='claude --allowedTools "Bash,Read,Write,Edit,Grep,WebQuery,WebSearch"'
