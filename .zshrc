@@ -40,4 +40,13 @@ alias scratchpad='nvim $(mktemp)'
 
 alias clauded="claude --dangerously-skip-permissions"
 
-alias claudet='claude --allowedTools "Bash,Read,Write,Edit,Grep,WebQuery,WebSearch"'
+alias claudet='claude --allowedTools "Bash,Read,Write,Edit,Grep,WebQuery,WebSearch,ssh"'
+
+function mcurl() {
+  curl -k \
+    --key ~/.metatron/certificates/user.key \
+    --cert ~/.metatron/certificates/user.crt \
+    --cacert ~/.metatron/certificates/metatronClient.trust.pem \
+    "$@"
+}
+
