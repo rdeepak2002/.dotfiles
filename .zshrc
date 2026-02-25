@@ -34,6 +34,22 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Pyenv setup (if exists)
+# Usage:
+#   pyls              - list installed python versions
+#   pyuse 3.13.3      - switch to python 3.13.3
+#   pyuse system      - switch back to system python
+#   pyenv install 3.12 - install a new python version
+if command -v pyenv &> /dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    # Remove Python.org framework paths so pyenv takes priority
+    PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '/Library/Frameworks/Python.framework' | tr '\n' ':' | sed 's/:$//')
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    alias pyls='pyenv versions'
+    alias pyuse='pyenv global'
+fi
+
 export PATH=$PATH:/Users/deepakramalingam/.local/bin
 
 alias scratchpad='nvim $(mktemp)'
