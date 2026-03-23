@@ -9,6 +9,7 @@ theme = Xcode Dark hc
 background-opacity = 1.0
 background-blur-radius = 40
 font-size = 16
+scrollback-limit = 5000
 # This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following
