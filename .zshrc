@@ -66,3 +66,4 @@ function mcurl() {
     "$@"
 }
 
+alias schedulerlocal=/Users/dramalingam/Documents/projects/nflx-scheduler-client/python-client/venv/bin/scheduler

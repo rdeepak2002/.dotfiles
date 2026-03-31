@@ -23,6 +23,17 @@ call plug#end()
 
 " --- General Settings ---
 set encoding=UTF-8
+
+" Ignore build artifacts, dependencies, and generated files in search/wildmenu
+set wildignore+=*/build/*,*/dist/*,*/out/*,*/target/*
+set wildignore+=*/__pycache__/*,*.pyc,*.pyo,*/.mypy_cache/*,*/.pytest_cache/*
+set wildignore+=*/node_modules/*,*/.next/*,*/.nuxt/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*/vendor/*,*/.gradle/*,*/.idea/*,*/.vscode/*
+set wildignore+=*.o,*.obj,*.a,*.so,*.dylib,*.dll,*.class,*.jar
+set wildignore+=*.swp,*.swo,*~,*.DS_Store
+set wildignore+=*/coverage/*,*/.nyc_output/*,*/htmlcov/*
+set wildignore+=*/.venv/*,*/.env/*,*/venv/*,*/env/*
 " Note: In Neovim, font is handled by the Terminal emulator.
 " This line is kept for GUI clients like Neovide/nvr.
 set guifont=Cousine\ Nerd\ Font:h12
@@ -101,6 +112,25 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeCreatePrefix = 'silent'
 let g:NERDTreeShowHidden = 1
+let NERDTreeIgnore = [
+  \ '\.\(pyc\|pyo\|o\|obj\|class\|DS_Store\|swp\)$',
+  \ '^__pycache__$', '^\.\(mypy_cache\|pytest_cache\)$',
+  \ '^node_modules$', '^\.\(next\|nuxt\)$',
+  \ '^build$', '^dist$', '^out$', '^target$',
+  \ '^\.\(git\|hg\|svn\|gradle\|idea\|vscode\)$',
+  \ '^coverage$', '^\.\(nyc_output\)$', '^htmlcov$',
+  \ '^\.\(venv\|env\)$', '^venv$', '^env$',
+  \ ]
+
+" fzf :Files — use rg to list files, respecting .gitignore + custom ignores
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+  \ . ' --glob "!.git" --glob "!node_modules" --glob "!__pycache__"'
+  \ . ' --glob "!build" --glob "!dist" --glob "!out" --glob "!target"'
+  \ . ' --glob "!.venv" --glob "!venv" --glob "!.env" --glob "!env"'
+  \ . ' --glob "!.mypy_cache" --glob "!.pytest_cache"'
+  \ . ' --glob "!.gradle" --glob "!.idea" --glob "!.vscode"'
+  \ . ' --glob "!coverage" --glob "!htmlcov" --glob "!.nyc_output"'
+  \ . ' --glob "!.next" --glob "!.nuxt" --glob "!vendor"'
 
 " --- CoC Autocompletion Setup ---
 function! CheckBackspace() abort
