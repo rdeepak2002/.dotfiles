@@ -1,0 +1,24 @@
+" vmap ,i <Esc>l,bv,e
+" omap ,i :normal v,i<CR>
+
+map <C-Up> :m -2<CR>
+map <C-k> :m -2<CR>
+map <C-Down> :m +1<CR>
+map <C-j> :m +1<CR>
+map <C-s> :w<CR>
+nnoremap d "_d
+"nnoremap dd "_dd
+nnoremap c d
+nnoremap C D
+vnoremap c d
+nnoremap x "_x
+set surround
+set number
+set relativenumber
+set ignorecase
+runtime macros/matchit.vim
+"defaults write -g ApplePressAndHoldEnabled -bool false
+
+set clipboard+=unnamedplus
+Plug 'preservim/nerdtree'
+nnoremap <D-n> :NERDTreeFocus<CR>

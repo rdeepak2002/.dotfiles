@@ -40,6 +40,7 @@ create_symlink() {
 # Create symlinks for each dotfile
 create_symlink "$DOTFILES_DIR/.zshrc" "$HOME_DIR/.zshrc"
 create_symlink "$DOTFILES_DIR/.vimrc" "$HOME_DIR/.vimrc"
+create_symlink "$DOTFILES_DIR/.ideavimrc" "$HOME_DIR/.ideavimrc"
 
 # Neovim config setup
 echo ""
